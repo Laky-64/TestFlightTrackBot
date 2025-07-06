@@ -1,0 +1,4 @@
+.idea
+.docker_build
+.env.sample
+*.yml
