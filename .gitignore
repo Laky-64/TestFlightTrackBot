@@ -2,3 +2,4 @@
 .env
 .docker_build
 go.sum
+*_gen.go
