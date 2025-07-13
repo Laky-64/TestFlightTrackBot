@@ -9,4 +9,19 @@ services:
       dockerfile: Dockerfile-dev
     volumes:
       - .:/app
-      - ./locales:/app/locales
+
+  mini-app-dev:
+    image: node:24-alpine3.22
+    container_name: mini-app-dev
+    working_dir: /app
+    volumes:
+      - ./miniapp:/app
+    command: sh -c "npm install --force && npm run dev"
+    environment:
+      - NODE_ENV=development
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}

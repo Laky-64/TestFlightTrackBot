@@ -1,0 +1,58 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body > div {
+    height: 100%;
+}
+
+* {
+    font-family: var(--font-regular), serif;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-regular: 'SFRounded-Regular';
+    --font-medium: 'SFRounded-Medium';
+    --font-bold: 'SFRounded-Bold';
+}
+
+@font-face {
+    font-family: 'SFRounded-Bold';
+    src: url('assets/fonts/SFRounded-Bold.woff2') format('woff2'),
+    url('assets/fonts/SFRounded-Bold.woff') format('woff'),
+    url('assets/fonts/SFRounded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFRounded-Medium';
+    src: url('assets/fonts/SFRounded-Medium.woff2') format('woff2'),
+    url('assets/fonts/SFRounded-Medium.woff') format('woff'),
+    url('assets/fonts/SFRounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFRounded-Regular';
+    src: url('assets/fonts/SFRounded-Regular.woff2') format('woff2'),
+    url('assets/fonts/SFRounded-Regular.woff') format('woff'),
+    url('assets/fonts/SFRounded-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

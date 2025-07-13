@@ -7,8 +7,8 @@ cmd = "go build -o .docker_build/bot ./cmd/bot"
 bin = "bot"
 full_bin = ".docker_build/bot"
 include_ext = ["go", "json"]
-exclude = ["internal/translator/keys.go"]
 exclude_regex = ["_gen\\.go"]
+exclude_dir = ["miniapp"]
 
 [log]
 time = true
