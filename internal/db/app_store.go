@@ -11,7 +11,7 @@ type appStore struct {
 	db *gorm.DB
 }
 
-func (ctx *appStore) FindByName(name string) ([]models.SearchResult, error) {
+func (ctx *appStore) Search(name string) ([]models.SearchResult, error) {
 	var links []models.SearchResult
 	if err := ctx.db.
 		Raw(
@@ -23,7 +23,7 @@ func (ctx *appStore) FindByName(name string) ([]models.SearchResult, error) {
 				    	levenshtein(app_name, ?)::float / length(app_name) AS l_value
 					FROM apps
 					WHERE app_name IS NOT NULL
-						AND levenshtein(app_name, ?)::float / length(app_name) <= 13
+						AND levenshtein(app_name, ?)::float / length(app_name) <= 1.4
 					LIMIT 3
 				)
 				SELECT
