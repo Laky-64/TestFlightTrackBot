@@ -48,7 +48,7 @@ func startTestflight(ctx context.Context, rateLimit *utils.RateLimiter, b *bot.B
 					removeLinks = append(removeLinks, link.ID)
 					continue
 				}
-				if _, ok := newApps[checked.AppName]; link.AppID != nil || !ok {
+				if _, ok := newApps[checked.AppName]; (link.AppID != nil || !ok) && len(checked.AppName) > 0 {
 					newApps[checked.AppName] = link.AppID
 				}
 				if checked.Status != link.Status {

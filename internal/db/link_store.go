@@ -53,13 +53,13 @@ func (ctx *linkStore) BulkUpdate(updates []models.LinkUpdate) error {
 					ARRAY[?]::bigint[],
 					ARRAY[?]::link_status_enum[],
 					ARRAY[?]::text[]
-				) AS i(id, status, app_name)
+				) AS i(link_id, status, app_name)
 			)
 			UPDATE links
-			SET status = i.status, updated_at = NOW(), app_id = apps.id
+			SET status = i.status, updated_at = NOW(), app_id = COALESCE(links.app_id, apps.id)
 			FROM input_data i
 			LEFT JOIN apps ON apps.app_name = i.app_name
-			WHERE links.id = i.id
+			WHERE links.id = i.link_id
 			AND (
 				links.status IS DISTINCT FROM i.status
 				OR links.app_id IS DISTINCT FROM apps.id
